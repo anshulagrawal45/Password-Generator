@@ -10,7 +10,7 @@
 <body>
     <div class="box">
         <div class="heading">Password Generator</div>
-        <div class="password-box" id="passbox">xAdF@FG</div>
+        <div class="password-box" id="passbox"></div>
         <div class="control-box">
             <div class="controls">
                 <label>Length</label>
@@ -18,23 +18,23 @@
             </div>
             <div class="controls">
                 <label for="uppercase">Include UpperCase</label>
-                <input type="checkbox" name="" id="uppercase" />
+                <input type="checkbox" id="uppercase" />
             </div>
             <div class="controls">
                 <label for="lowercase">Include LowerCase</label>
-                <input type="checkbox" name="" id="lowercase" />
+                <input type="checkbox" id="lowercase" />
             </div>
             <div class="controls">
                 <label for="numbers">Include Numbers</label>
-                <input type="checkbox" name="" id="numbers" />
+                <input type="checkbox" id="numbers" />
             </div>
             <div class="controls">
                 <label for="specialchar">Include Special Character</label>
-                <input type="checkbox" name="" id="specialchar" />
+                <input type="checkbox" id="specialchar" />
             </div>
         </div>
         <div class="button-box">
-            <button id="btn">Generate</button>
+            <button id="btn" onclick="return generatepass(password)">Generate</button>
         </div>
     </div>
     <script src="script.js"></script> 

@@ -1,41 +1,37 @@
-const UpperChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const LowerChar = "abcdefghijklmnopqrstuvwxyz";
-const NumericChar = "1234567890";
-const Specialchar = "!@#$%&(){}[]?";
+let UpperChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+let LowerChar = "abcdefghijklmnopqrstuvwxyz";
+let NumericChar = "1234567890";
+let Specialchar = "!@#$%&(){}[]?";
+let password = "";
+let passbox = document.getElementById("passbox");
+let lengthbox = document.getElementById("length");
+let uppercase = document.getElementById("uppercase");
+let lowercase = document.getElementById("lowercase");
+let numbers = document.getElementById("numbers");
+let specialchar = document.getElementById("specialchar");
+let btn = document.getElementById("btn");
 
-const getRandomData = (Dataset) => {
-  return Dataset[Math.floor(Math.random * Dataset.length)];
-}
-
-const passbox = document.getElementById("passbox")
-const lengthbox = document.getElementById("length");
-const uppercase = document.getElementById("uppercase");
-const lowercase = document.getElementById("lowercase");
-const numbers = document.getElementById("numbers");
-const specialchar = document.getElementById("specialchar");
-const btn = document.getElementById("btn");
-
-const generatepass = (password = "")=>{
-  if(uppercase.checked){
-    password += getRandomData(UpperChar);
+function generatepass(password) {
+  let array = [];
+  if (uppercase.checked) {
+    array.push(UpperChar);
   }
   if (lowercase.checked) {
-    password += getRandomData(LowerChar);
+    array.push(LowerChar);
   }
   if (numbers.checked) {
-    password += getRandomData(NumericChar);
+    array.push(NumericChar);
   }
   if (specialchar.checked) {
-    password += getRandomData(Specialchar);
+    array.push(Specialchar);
   }
-  if(password.length <= lengthbox.value){
-    return generatepass();
+  while (password.length < lengthbox.value) {
+    let Dataset = array[Math.floor(Math.random() * array.length)];
+    password += getRandomData(Dataset);
   }
-  if (password.length > lengthbox.value) {
-    return password.slice(0,lengthbox.value+1);
-  }
+  passbox.innerText = password;
 }
-
-btn.addEventListener("click",function(){
-  generatepass();
-})
+function getRandomData(Dataset) {
+  let a = Dataset[Math.floor(Math.random() * Dataset.length)];
+  return a;
+}

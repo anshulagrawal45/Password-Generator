@@ -48,6 +48,7 @@ body {
   color: aliceblue;
   border: none;
   border-radius: 0px;
+  cursor: pointer;
 }
 .box .button-box {
   display: flex;
